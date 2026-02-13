@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>A Letter For You 💌</title>
+
+<style>
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Georgia, serif;
+    overflow: hidden;
+}
+
+.envelope {
+    position: relative;
+    width: 350px;
+    height: 230px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.flap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #d6336c;
+    clip-path: polygon(0 0, 50% 60%, 100% 0);
+    transform-origin: top;
+    transition: transform 1s ease;
+}
+
+.letter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fffdf7;
+    padding: 25px;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    transition: transform 1s ease;
+    text-align: center;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    transform: translateY(-15%);
+}
+
+h2 {
+    margin-top: 0;
+    color: #b03060;
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="openLetter()">
+    <div class="flap"></div>
+    <div class="letter">
+        <h2>My Dearest mommy ❤️</h2>
+        <p>
+            In a world full of moments,
+            you are my favorite one.
+        </p>
+        <p>
+            Your smile is my peace,
+            your laughter is my melody,
+            and your love is my forever.
+        </p>
+        <p>
+            No matter what life brings,
+            I promise to stand beside you,
+            today, tomorrow, and always.
+        </p>
+        <p><strong>Forever Yours 💖</strong></p>
+    </div>
+</div>
+
+<script>
+function openLetter() {
+    document.querySelector(".envelope").classList.add("open");
+}
+</script>
+
+</body>
+</html>
