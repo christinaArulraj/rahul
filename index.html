@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enter your login credential</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.container {
+    width: 350px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #00c6ff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #0072ff;
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Login Form -->
+    <div id="login-section">
+        <h2>Happy Valentine's Day ❤️</h2>
+        <input type="text" id="username" placeholder="How do I call you?">
+        <input type="password" id="password" placeholder="How do you call me">
+        <button onclick="login()">Login</button>
+        <div class="error" id="error-msg"></div>
+    </div>
+
+</div>
+
+<script>
+function login() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const errorMsg = document.getElementById("error-msg");
+
+    const validUser = "mommy";
+    const validPass = "bby";
+
+    if (username === validUser && password === validPass) {
+        errorMsg.textContent = "";
+        
+        
+        window.location.href = "valentine.html";  
+        
+    } else {
+        errorMsg.textContent = "Marathutinga.Try again.";
+    }
+}
+
+</script>
+<!-- Romantic Music -->
+<audio id="bgMusic" loop>
+    <source src="Urugi Urugi BGM Ringtone.mp3" type="audio/mp3">
+</audio>
+
+<script>
+// Fade in page
+window.addEventListener("load", () => {
+    document.body.classList.add("fade-in");
+});
+
+// Floating hearts
+for (let i = 0; i < 20; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+    document.body.appendChild(heart);
+}
+
+// Background Music Across Pages
+const music = document.getElementById("bgMusic");
+
+if (!localStorage.getItem("musicPlaying")) {
+    music.play().then(() => {
+        localStorage.setItem("musicPlaying", "true");
+    }).catch(() => {});
+} else {
+    music.play().catch(() => {});
+}
+</script>
+
+</body>
+</html>

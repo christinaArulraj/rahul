@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For You ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Center Message */
+        .center-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .center-message h2 {
+            color: #ff4d6d;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-30px); opacity: 0.7; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Teddy images */
+        .teddy {
+            position: absolute;
+            width: 100px;
+            opacity: 0.9;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Center Message -->
+<div class="center-message">
+    <h2>You Mean The World To Me ❤️</h2>
+    <p>I love you more than words can ever express.</p>
+    <br><br>
+<button onclick="window.location.href='photostrip.html'" 
+style="padding:10px 20px; background:#ff4d6d; color:white; border:none; border-radius:8px; cursor:pointer;">
+Need More Love ❤️
+</button>
+</div>
+
+<script>
+/* Popup Love Message */
+window.onload = function() {
+    alert("I love you more with every heartbeat, every smile, and every moment we share ❤️");
+};
+
+/* Create 20 Hearts Randomly */
+for (let i = 0; i < 20; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = Math.random() * 100 + "vh";
+    heart.style.animationDuration = (Math.random() * 5 + 3) + "s";
+    document.body.appendChild(heart);
+}
+
+
+</script>
+<!-- Romantic Music -->
+<audio id="bgMusic" loop>
+    <source src="Urugi Urugi BGM Ringtone.mp3" type="audio/mp3">
+</audio>
+
+<script>
+// Fade in page
+window.addEventListener("load", () => {
+    document.body.classList.add("fade-in");
+});
+
+// Floating hearts
+for (let i = 0; i < 20; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+    document.body.appendChild(heart);
+}
+
+// Background Music Across Pages
+const music = document.getElementById("bgMusic");
+
+if (!localStorage.getItem("musicPlaying")) {
+    music.play().then(() => {
+        localStorage.setItem("musicPlaying", "true");
+    }).catch(() => {});
+} else {
+    music.play().catch(() => {});
+}
+</script>
+
+</body>
+</html>

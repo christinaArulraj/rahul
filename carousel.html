@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>More Love ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<style>
+body {
+    margin:0;
+    font-family: Arial;
+    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    text-align:center;
+    color:white;
+}
+ 
+.carousel-container {
+    position:relative;
+    max-width:500px;
+    margin:40px auto;
+}
+ 
+.carousel-container img {
+    width:100%;
+    border-radius:15px;
+}
+ 
+.description {
+    margin-top:10px;
+    font-size:18px;
+}
+ 
+.arrow {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:30px;
+    cursor:pointer;
+    background:white;
+    color:#ff4d6d;
+    padding:5px 15px;
+    border-radius:50%;
+}
+ 
+.left { left:-50px; }
+.right { right:-50px; }
+ 
+.bottom-box {
+    margin-top:40px;
+    background:white;
+    color:#ff4d6d;
+    padding:20px;
+    border-radius:15px;
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+}
+ 
+.bottom-box button {
+    margin:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+ 
+.yes { background:#ff4d6d; color:white; }
+.no { background:#ccc; }
+ 
+.music-btn {
+    margin-top:20px;
+    background:white;
+    color:#ff4d6d;
+    padding:8px 18px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:bold;
+}
+</style>
+</head>
+ 
+<body>
+ 
+<h1>Our Love Story ❤️</h1>
+ 
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" loop>
+    <source src="Urugi Urugi BGM Ringtone.mp3" type="audio/mpeg">
+</audio>
+ 
+<div class="carousel-container">
+    <span class="arrow left" onclick="prevSlide()">❮</span>
+    <img id="carouselImage" src="https://picsum.photos/500/400?1">
+    <span class="arrow right" onclick="nextSlide()">❯</span>
+ 
+    <div class="description" id="description">
+        This is where our beautiful journey started ❤️
+    </div>
+</div>
+ 
+<button class="music-btn" onclick="toggleMusic()">🎵 Play / Pause Music</button>
+ 
+<div class="bottom-box">
+    <p><strong>Will you show me how much you love me in person?</strong></p>
+    <button class="yes" onclick="sayYes()">Yes ❤️</button>
+    <button class="no" onclick="window.location.href='final.html'">No 🙈</button>
+</div>
+ 
+<script>
+let images = [
+    {src:" /Users/christy/aish14/Aish/Ai/jpeg/iloveimg-converted (1)/robert-bri/robert-bri-0000.jpg", text:"Our first memory ❤️"},
+    {src:"Ai/jpeg/iloveimg-converted (1)/2-bubu-angry-bubu-and-dudu.jpg", text:"Laughing together 😄"},
+    {src:"Ai/jpeg/iloveimg-converted (1)/1-bubu-bubu-dudu.jpg", text:"Adventures we cherish ✨"},
+    {src:"Ai/jpeg/iloveimg-converted (1)/22-dudu-on-top-bubu-hearts.jpg", text:"Moments of joy 💕"},
+    {src:"Ai/jpeg/iloveimg-converted (1)/dudu-bubu (1)/dudu-bubu (1)-0000.jpg", text:"Smiles that melt my heart 😍"},
+    {src:"Ai/jpeg/iloveimg-converted (1)/1-munch-face.jpg", text:"Unforgettable days 🌸"},
+    {src:"Ai/jpeg/iloveimg-converted (1)/1-dudu-kiss-bubu-dudu.jpg", text:"You and me forever ❤️"},
+    {src:"Ai/jpeg/iloveimg-converted (1)/There For You Sympathy GIF/There For You Sympathy GIF-0005.jpg", text:"My favorite person 💖"},
+    {src:"Ai/jpeg/iloveimg-converted (1)/bubu-dudu-bubu/bubu-dudu-bubu-0006.jpg", text:"Every memory is special 💫"},
+    {src:"Ai/jpeg/iloveimg-converted (1)/bubu-dudu-sseeyall (1)/bubu-dudu-sseeyall (1)-0000.jpg", text:"Our love story continues... 💞"},
+    {src:"Ai/jpeg/iloveimg-converted (1)/bubu-dudu/bubu-dudu-0000.jpg", text:"Our love story continues... 💞"}
+];
+ 
+let index = 0;
+let music = document.getElementById("bgMusic");
+ 
+function updateSlide() {
+    document.getElementById("carouselImage").src = images[index].src;
+    document.getElementById("description").innerText = images[index].text;
+}
+ 
+function nextSlide() {
+    index = (index + 1) % images.length;
+    updateSlide();
+}
+ 
+function prevSlide() {
+    index = (index - 1 + images.length) % images.length;
+    updateSlide();
+}
+ 
+function sayYes() {
+    music.play();
+    alert("I knew you would say yes ❤️");
+}
+ 
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+ 
+/* 🎵 Auto play on first user interaction */
+window.addEventListener('click', function() {
+    music.play();
+}, { once: true });
+ 
+</script>
+ 
+</body>
+</html>
